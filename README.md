@@ -31,11 +31,9 @@ const batch = await getCandidates([
 
 ### CDN
 
-```html
-<script type="module">
+```typescript
 import { getCandidates } from 'https://esm.sh/@windpress/oxide-parser';
 const candidates = await getCandidates('<div class="flex p-4">');
-</script>
 ```
 
 ### Synchronous API
