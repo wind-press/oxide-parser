@@ -83,5 +83,6 @@ jobs:
       - name: Publish to NPM with OIDC
         run: pnpm publish --access public --no-git-checks
 
+      # publish to pkg.pr.new
       - name: Publish package to pkg.pr.new
         run: npx pkg-pr-new publish
