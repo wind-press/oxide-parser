@@ -1,0 +1,82 @@
+name: Version Bump
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+  schedule:
+    - cron: "0 0 * * 0"  # Weekly on Sunday at midnight UTC
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.ORG_DEV_PAT }}
+
+      - name: Setup Rust toolchain
+        run: rustup toolchain install stable --profile minimal
+
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Install cargo-bump
+        run: cargo install cargo-bump
+
+      - name: Install cargo-get
+        run: cargo install cargo-get
+
+      - name: Bump Cargo version
+        run: cargo bump ${{ github.event.inputs.bump_type || 'patch' }}
+
+      - name: Get new version from Cargo.toml
+        id: get_version
+        run: |
+          VERSION=$(cargo get package.version)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $VERSION"
+
+      - name: Update package.json version
+        run: |
+          npm version ${{ steps.get_version.outputs.version }} --no-git-tag-version
+
+      - name: Update Cargo dependencies
+        run: cargo update
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'windpress'
+          git config --global user.email 'windpress@users.noreply.github.com'
+          git add Cargo.toml Cargo.lock package.json
+          git commit -m "chore: bump version to ${{ steps.get_version.outputs.version }} [skip ci]"
+          git push
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.get_version.outputs.version }}
+          git push origin ${{ steps.get_version.outputs.version }}

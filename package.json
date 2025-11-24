@@ -1,0 +1,50 @@
+{
+  "name": "@windpress/oxide-parser",
+  "version": "1.0.0",
+  "description": "Tailwind CSS Oxide parser WASM package for Vite and CDN usage",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json",
+    "./wasm": "./dist/oxide_parser.wasm"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:wasm": "wasm-pack build --target web --out-dir pkg --release",
+    "build:ts": "tsdown",
+    "build": "npm run build:wasm && npm run build:ts && npm run copy-wasm",
+    "copy-wasm": "node scripts/copy-wasm.js",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "tailwindcss",
+    "oxide",
+    "wasm",
+    "parser",
+    "vite",
+    "cdn",
+    "esm"
+  ],
+  "author": "WindPress <hi@wind.press>",
+  "license": "MIT",
+  "devDependencies": {
+    "tsdown": "^0.16.6",
+    "typescript": "^5.7.2",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {},
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wind-press/oxide-parser"
+  },
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd"
+}
