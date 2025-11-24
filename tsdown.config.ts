@@ -9,7 +9,7 @@ export default defineConfig({
   exports: {
     customExports(pkg) {
       // Add WASM file export
-      pkg['./wasm'] = './dist/oxide_parser.wasm';
+      pkg['./wasm'] = './dist/oxide_parser_bg.wasm';
       return pkg;
     },
   },

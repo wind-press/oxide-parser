@@ -9,7 +9,7 @@
   "exports": {
     ".": "./dist/index.mjs",
     "./package.json": "./package.json",
-    "./wasm": "./dist/oxide_parser.wasm"
+    "./wasm": "./dist/oxide_parser_bg.wasm"
   },
   "files": [
     "dist",

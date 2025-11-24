@@ -11,9 +11,9 @@ if (!existsSync(distDir)) {
   mkdirSync(distDir, { recursive: true });
 }
 
-// Copy WASM file from pkg to dist
+// Copy WASM file from pkg to dist (keep the _bg suffix)
 const wasmSrc = join(rootDir, 'pkg', 'oxide_parser_bg.wasm');
-const wasmDest = join(distDir, 'oxide_parser.wasm');
+const wasmDest = join(distDir, 'oxide_parser_bg.wasm');
 
 try {
   copyFileSync(wasmSrc, wasmDest);
