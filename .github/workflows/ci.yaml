@@ -6,7 +6,7 @@ on:
       - main
       - develop
     tags-ignore:
-      - 'v*'
+      - '*'
   pull_request:
     branches:
       - main
