@@ -1,6 +1,6 @@
 {
   "name": "@windpress/oxide-parser",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Tailwind CSS Oxide parser WASM package for Vite and CDN usage",
   "type": "module",
   "main": "./dist/index.mjs",
