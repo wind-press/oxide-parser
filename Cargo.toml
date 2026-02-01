@@ -1,6 +1,6 @@
 [package]
 name = "oxide-parser"
-version = "1.0.13"
+version = "1.0.14"
 edition = "2021"
 authors = ["WindPress <hi@wind.press>"]
 description = "Tailwind CSS Oxide parser WASM for Vite and CDN usage"
