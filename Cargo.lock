@@ -30,9 +30,9 @@ dependencies = [
 
 [[package]]
 name = "bitflags"
-version = "2.11.0"
+version = "2.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "843867be96c8daad0d758b57df9392b6d8d271134fce549de6ce169ff98a92af"
+checksum = "c4512299f36f043ab09a583e57bceb5a5aab7a73db1805848e8fef3c9e8c78b3"
 
 [[package]]
 name = "bstr"
@@ -60,7 +60,7 @@ checksum = "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
 [[package]]
 name = "classification-macros"
 version = "0.1.0"
-source = "git+https://github.com/tailwindlabs/tailwindcss.git#aad601711fd43d5bf2966a8c30767a6945aaf451"
+source = "git+https://github.com/tailwindlabs/tailwindcss.git#5a835e1728c91b73da47de9831187ea4d83cf791"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -140,7 +140,7 @@ dependencies = [
 [[package]]
 name = "ignore"
 version = "0.4.24"
-source = "git+https://github.com/tailwindlabs/tailwindcss.git#aad601711fd43d5bf2966a8c30767a6945aaf451"
+source = "git+https://github.com/tailwindlabs/tailwindcss.git#5a835e1728c91b73da47de9831187ea4d83cf791"
 dependencies = [
  "crossbeam-deque",
  "dunce",
@@ -250,7 +250,7 @@ checksum = "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
 
 [[package]]
 name = "oxide-parser"
-version = "1.0.24"
+version = "1.0.25"
 dependencies = [
  "js-sys",
  "tailwindcss-oxide",
@@ -283,9 +283,9 @@ dependencies = [
 
 [[package]]
 name = "rayon"
-version = "1.11.0"
+version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "368f01d005bf8fd9b1206fb6fa653e6c4a81ceb1466406b81792d87c5677a58f"
+checksum = "fb39b166781f92d482534ef4b4b1b2568f42613b53e5b6c160e24cfbfa30926d"
 dependencies = [
  "either",
  "rayon-core",
@@ -409,7 +409,7 @@ dependencies = [
 [[package]]
 name = "tailwindcss-oxide"
 version = "0.1.0"
-source = "git+https://github.com/tailwindlabs/tailwindcss.git#aad601711fd43d5bf2966a8c30767a6945aaf451"
+source = "git+https://github.com/tailwindlabs/tailwindcss.git#5a835e1728c91b73da47de9831187ea4d83cf791"
 dependencies = [
  "bexpand",
  "bstr",
